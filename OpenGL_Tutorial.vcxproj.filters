@@ -37,16 +37,16 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\colors.vs">
+    <None Include="shaders\colors.vert">
       <Filter>Файлы ресурсов</Filter>
     </None>
-    <None Include="shaders\colors.fs">
+    <None Include="shaders\colors.frag">
       <Filter>Файлы ресурсов</Filter>
     </None>
-    <None Include="shaders\light_cube.fs">
+    <None Include="shaders\light_cube.frag">
       <Filter>Файлы ресурсов</Filter>
     </None>
-    <None Include="shaders\light_cube.vs">
+    <None Include="shaders\light_cube.vert">
       <Filter>Файлы ресурсов</Filter>
     </None>
   </ItemGroup>

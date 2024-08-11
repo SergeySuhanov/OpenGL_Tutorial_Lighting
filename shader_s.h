@@ -116,6 +116,10 @@ public:
 	{
 		glUniform3f(glGetUniformLocation(ID, name.c_str()), rgb.x, rgb.y, rgb.z);
 	}
+	void setVec3(const std::string& name, float red, float green, float blue)
+	{
+		glUniform3f(glGetUniformLocation(ID, name.c_str()), red, green, blue);
+	}
 };
 
 #endif

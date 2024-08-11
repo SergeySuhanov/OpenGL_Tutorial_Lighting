@@ -58,8 +58,8 @@ int main()
 	glEnable(GL_DEPTH_TEST);
 
 	// SHADERS
-	Shader lightingShader("shaders/colors.vs", "shaders/colors.fs");
-	Shader lightCubeShader("shaders/light_cube.vs", "shaders/light_cube.fs");
+	Shader lightingShader("shaders/colors.vert", "shaders/colors.frag");
+	Shader lightCubeShader("shaders/light_cube.vert", "shaders/light_cube.frag");
 
 	// VERTICES
 	float vertices[] = {
@@ -145,9 +145,16 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		lightingShader.use();
-		lightingShader.setVec3("objectColor", glm::vec3(1.0f, 0.5f, 0.31f));
-		lightingShader.setVec3("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));
-		lightingShader.setVec3("lightPos", lightPos);
+		lightingShader.setVec3("material.ambient", 0.0215f, 0.1745f, 0.0215f);
+		lightingShader.setVec3("material.diffuse", 0.07568f, 0.61424f, 0.07568f);
+		lightingShader.setVec3("material.specular", 0.633f, 0.727811f, 0.633f);
+		lightingShader.setFloat("material.shininess", 60.0f);
+
+		lightingShader.setVec3("light.ambient", 1.0f, 1.0f, 1.0f);
+		lightingShader.setVec3("light.diffuse", 1.0f, 1.0f, 1.0f);
+		lightingShader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
+		lightingShader.setVec3("light.position", lightPos);
+
 		lightingShader.setVec3("viewPos", camera.Position);
 		
 		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
